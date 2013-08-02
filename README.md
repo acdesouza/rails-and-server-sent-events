@@ -9,8 +9,21 @@ Using Browser feature SSE to retrieve changes on a Rails4 application stream
   1. Allow concurrency on development enviroment
   1. Add helper to write on stream
   1. Scaffold a model to use on live test
-  1. Add stream capability to UsersController, using ActiveController::Live
+  1. Add stream capability to UsersController, using ActionController::Live
   1. Provide stream, of last user changed, on UsersController and consumes using HTML5 Server Sent Event
+
+## How to see it working
+
+  1. git clone https://github.com/acdesouza/rails-and-server-sent-events.git .
+  1. bundle install
+  1. bundle exec rake db:create db:migrate
+  1. bundle exec rails s
+  1. On Browser 1: [User watch stream](http://localhost:3000)
+  1. On Browser 2: [User watch stream](http://localhost:3000)
+  1. On Browser 3: [User list](http://localhost:3000/users)
+  1. Redimension browser's windows to make browser visible
+  1. On Browser 3: Create an user
+  1. On Broeser 1,2: See they receiving the update
 
 ## Fonts
   * [Killing a library - Alex MacCaw](http://blog.alexmaccaw.com/killing-a-library)
