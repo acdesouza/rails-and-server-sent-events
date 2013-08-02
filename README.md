@@ -10,6 +10,7 @@ Using Browser feature SSE to retrieve changes on a Rails4 application stream
   1. Add helper to write on stream
   1. Scaffold a model to use on live test
   1. Add stream capability to UsersController, using ActiveController::Live
+  1. Provide stream, of last user changed, on UsersController and consumes using HTML5 Server Sent Event
 
 ## Fonts
   * [Killing a library - Alex MacCaw](http://blog.alexmaccaw.com/killing-a-library)

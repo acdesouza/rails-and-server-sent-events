@@ -1,0 +1,23 @@
+<h1>Exemple module ActionController::Live and HTML5 Server Sent Events</h1>
+
+<p>Crie um novo usuário com mais de um browser aberto nesta página e veja todos eles se atualizando</p>
+<%= link_to 'Crie novo usuário', new_user_path %>
+
+<ul id="users">
+</ul>
+
+<%= content_for :javascript do %>
+  <script type="text/javascript">
+    var source = new EventSource('/user_stream');
+
+    source.addEventListener('results', function(e){
+      console.log('Received a message:', e.data);
+      $("#users").append("<li>"+ $.parseJSON(e.data).name +"</li>");
+    });
+
+    source.addEventListener('finished', function(e){
+      console.log('Close:', e.data);
+      source.close();
+    });
+</script>
+<% end %>

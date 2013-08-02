@@ -5,6 +5,26 @@ class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def watch
+  end
+
+  def index_stream
+    # SSE expects the `text/event-stream` content type
+    response.headers['Content-Type'] = 'text/event-stream'
+
+    sse = Reloader::SSE.new(response.stream)
+
+    last_updated = User.last_updated.first
+    if recently_changed? last_updated
+      begin
+        sse.write(last_updated, event: 'results')
+      rescue IOError
+        # When the client disconnects, we'll get an IOError on write
+      ensure
+        sse.close
+      end
+    end
+  end
 
   # GET /users
   # GET /users.json
