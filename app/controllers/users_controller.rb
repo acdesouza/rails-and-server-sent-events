@@ -1,5 +1,10 @@
+require 'reloader/sse'
+
 class UsersController < ApplicationController
+  include ActionController::Live
+
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+
 
   # GET /users
   # GET /users.json
@@ -62,13 +67,18 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:name, :phone)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:name, :phone)
+  end
+
+  def recently_changed? last_user
+    last_user.created_at > 5.seconds.ago or
+      last_user.updated_at > 5.seconds.ago
+  end
 end

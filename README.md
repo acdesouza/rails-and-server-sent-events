@@ -9,6 +9,7 @@ Using Browser feature SSE to retrieve changes on a Rails4 application stream
   1. Allow concurrency on development enviroment
   1. Add helper to write on stream
   1. Scaffold a model to use on live test
+  1. Add stream capability to UsersController, using ActiveController::Live
 
 ## Fonts
   * [Killing a library - Alex MacCaw](http://blog.alexmaccaw.com/killing-a-library)
