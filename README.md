@@ -5,6 +5,7 @@ Using Browser feature SSE to retrieve changes on a Rails4 application stream
 ## Steps
 
   1. rails _4.0.0_ new <project>
+  1. Add Puma server, witch support Server Sent Events: http://puma.io/
 
 ## Fonts
   * [Killing a library - Alex MacCaw](http://blog.alexmaccaw.com/killing-a-library)
