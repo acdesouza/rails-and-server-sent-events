@@ -23,7 +23,7 @@ Using Browser feature SSE to retrieve changes on a Rails4 application stream
   1. On Browser 3: [User list](http://localhost:3000/users)
   1. Redimension browser's windows to make browser visible
   1. On Browser 3: Create an user
-  1. On Broeser 1,2: See they receiving the update
+  1. On Browser 1,2: See they receiving the update
 
 ## Fonts
   * [Killing a library - Alex MacCaw](http://blog.alexmaccaw.com/killing-a-library)
