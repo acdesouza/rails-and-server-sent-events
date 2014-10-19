@@ -14,6 +14,12 @@ Using Browser feature SSE to retrieve changes on a Rails4 application stream
 
 ## How to see it working
 
+### Easy way
+
+ [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/acdesouza/rails-and-server-sent-events)
+
+### Local way
+
   1. git clone https://github.com/acdesouza/rails-and-server-sent-events.git .
   1. bundle install
   1. bundle exec rake db:create db:migrate
