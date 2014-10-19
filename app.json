@@ -1,0 +1,6 @@
+{
+  "name": "Ruby and Server-sent events",
+  "description": "Sample application to demonstrate Rails 4 ActionController::Live and HTML5 Server Sent Events",
+  "repository": "https://github.com/acdesouza/rails-and-server-sent-events",
+  "keywords": ["ruby", "rails", "server-sent events"]
+}
