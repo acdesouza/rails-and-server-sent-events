@@ -16,7 +16,9 @@ Using Browser feature SSE to retrieve changes on a Rails4 application stream
 
 ### Easy way
 
- [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/acdesouza/rails-and-server-sent-events)
+ 1. [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/acdesouza/rails-and-server-sent-events)
+ 1. heroku run rake db:migrate
+ 
 
 ### Local way
 
@@ -24,6 +26,9 @@ Using Browser feature SSE to retrieve changes on a Rails4 application stream
   1. bundle install
   1. bundle exec rake db:create db:migrate
   1. bundle exec rails s
+
+### And then...
+
   1. On Browser 1: [User watch stream](http://localhost:3000)
   1. On Browser 2: [User watch stream](http://localhost:3000)
   1. On Browser 3: [User list](http://localhost:3000/users)
