@@ -1,5 +1,3 @@
-require 'reloader/sse'
-
 class UsersController < ApplicationController
   include ActionController::Live
 
@@ -12,18 +10,19 @@ class UsersController < ApplicationController
     # SSE expects the `text/event-stream` content type
     response.headers['Content-Type'] = 'text/event-stream'
 
-    sse = Reloader::SSE.new(response.stream)
+    sse = SSE.new response.stream
 
-    last_updated = User.last_updated.first
-    if recently_changed? last_updated
-      begin
-        sse.write(last_updated, event: 'results')
-      rescue IOError
-        # When the client disconnects, we'll get an IOError on write
-      ensure
-        sse.close
-      end
+    ActiveSupport::Notifications.subscribe 'users' do |*args|
+      *, last_updated = args
+      sse.write last_updated, event: 'results'
     end
+
+    loop { sleep 1 }
+
+  rescue IOError
+    # When the client disconnects, we'll get an IOError on write
+  ensure
+    sse.close
   end
 
   # GET /users
