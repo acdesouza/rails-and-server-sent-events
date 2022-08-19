@@ -2,6 +2,8 @@
 
 Using Browser feature SSE to retrieve changes on a Rails4 application stream
 
+[Removing HTTP/2 Server Push from Chrome](https://developer.chrome.com/blog/removing-push/)
+
 ## Steps
 
   1. rails _4.0.0_ new <project>
